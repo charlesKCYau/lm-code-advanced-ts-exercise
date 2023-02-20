@@ -1,8 +1,9 @@
-import { fetchPost } from "../../../api/fetch_post.mjs";
-import { clear, print, prompt, printNewLine } from "../../../ui/console.mjs";
+import { fetchPost } from "../../../api/fetch_post";
+import { clear, print, prompt, printNewLine } from "../../../ui/console";
 
 export async function browsePosts() {
-	clear("nope");
+	// clear("nope");
+	clear(false);
 
 	const desiredPostId = await prompt("Enter Post ID");
 
