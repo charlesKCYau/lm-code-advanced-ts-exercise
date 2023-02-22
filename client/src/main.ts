@@ -47,19 +47,6 @@ async function main() {
 			print("😵 We have entered an unknown state.");
 			await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
 			state.set(states.MENU);
-		} else if(state.get() === "UNKNOWN"){
-			clear(true);
-			print("😵 We have entered an unknown state.");
-			await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-			state.set(states.MENU);
-		} else if(state.get() === "CABBAGE"){
-			clear(true);
-			print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
-			print("🥬      CABBAGE MODE UNLOCKED     🥬", false);
-			print("🥬     Why did you want this?     🥬", false);
-			print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
-			await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-			state.set(states.MENU);
 		} else if(state.get() === "CABBAGE"){
 			clear(true);
 			print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
