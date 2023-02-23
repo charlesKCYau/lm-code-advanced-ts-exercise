@@ -1,6 +1,7 @@
 import { exit } from "./exit/exit";
 import { showMenu } from "./menu/menu";
 import { browsePosts } from "./menu/options/browse_posts/browse_posts";
+import { addUsers } from "./menu/options/add_users/add_users";
 import { sendMessage } from "./menu/options/send_message/send_message";
 import { showAllPosts } from "./menu/options/show_all_posts/show_all_posts";
 import { showAllUsers } from "./menu/options/show_all_users/show_all_users";
@@ -39,9 +40,11 @@ async function main() {
 			state.set(states.MENU);
 		} else if(state.get() === "ADD_USER"){
 			clear(true);
-			print("🏗️  This functionality has not been implemented!");
-			await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-			state.set(states.MENU);
+			// print("🏗️  This functionality has not been implemented!");
+			// await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
+			// state.set(states.MENU);
+			const nextState = await addUsers();
+			state.set(nextState);
 		} else if(state.get() === "UNKNOWN"){
 			clear(true);
 			print("😵 We have entered an unknown state.");
