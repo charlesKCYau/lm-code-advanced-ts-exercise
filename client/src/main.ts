@@ -2,6 +2,7 @@ import { exit } from "./exit/exit";
 import { showMenu } from "./menu/menu";
 import { browsePosts } from "./menu/options/browse_posts/browse_posts";
 import { addUsers } from "./menu/options/add_users/add_users";
+import { addPosts } from "./menu/options/add_posts/add_posts";
 import { sendMessage } from "./menu/options/send_message/send_message";
 import { showAllPosts } from "./menu/options/show_all_posts/show_all_posts";
 import { showAllUsers } from "./menu/options/show_all_users/show_all_users";
@@ -45,19 +46,23 @@ async function main() {
 			// state.set(states.MENU);
 			const nextState = await addUsers();
 			state.set(nextState);
+		} else if(state.get() === "ADD_POST"){
+			clear(true);
+			const nextState = await addPosts();
+			state.set(nextState);
 		} else if(state.get() === "UNKNOWN"){
 			clear(true);
 			print("😵 We have entered an unknown state.");
 			await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
 			state.set(states.MENU);
-		} else if(state.get() === "CABBAGE"){
-			clear(true);
-			print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
-			print("🥬      CABBAGE MODE UNLOCKED     🥬", false);
-			print("🥬     Why did you want this?     🥬", false);
-			print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
-			await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
-			state.set(states.MENU);
+		// } else if(state.get() === "CABBAGE"){
+		// 	clear(true);
+			// print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
+			// print("🥬      CABBAGE MODE UNLOCKED     🥬", false);
+			// print("🥬     Why did you want this?     🥬", false);
+			// print("🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬🥬", false);
+			// await prompt("⌨️ Press [ENTER] to return to the main menu! 🕶️");
+			// state.set(states.MENU);
 		} else {
 			clear(true);
 			print(`🌋 😱 Uh-oh, we've entered an invalid state: "${state.get()}"`);

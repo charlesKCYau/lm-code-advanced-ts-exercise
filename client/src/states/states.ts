@@ -8,6 +8,7 @@ export type States_Type = {
 	BROWSE_POSTS: string;
 
 	ADD_USER: string;
+	ADD_POST: string;
 
 	UNKNOWN: string;
 };
@@ -22,6 +23,7 @@ export const states: States_Type = {
 	BROWSE_POSTS: "BROWSE_POSTS",
 
 	ADD_USER: "ADD_USER",
+	ADD_POST: "ADD_POST",
 
 	UNKNOWN: "UNKNOWN",
 } as const;
